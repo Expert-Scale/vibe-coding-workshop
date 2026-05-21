@@ -4,7 +4,7 @@
 **Format:** 45 min, live build of one small feature with the model doing 80%+ of the work — spec, code, tests, fixes, adversarial review. **Teach-and-show**: every section includes a step-by-step DIY block they can run at the office Monday.
 **Companion:** Session 1 (Zero-Hallucination AI Agents) was the *consumer* side — how to keep a model honest. Session 2 is the *builder* side — how to let it do more without losing control.
 **Tooling:** **Claude Code** throughout. Same primitives translate to Cursor agent mode, Aider, or your own loop — Claude Code just makes the rungs the easiest to demonstrate.
-**Take-home repo:** https://github.com/expertscale/vibe-coding-workshop
+**Take-home repo:** https://github.com/Expert-Scale/vibe-coding-workshop
 
 ---
 

@@ -3,7 +3,7 @@
 **Format:** Live "vibe coding" — build a working legal-playbook agent on screen while teaching the 4 guardrails. **Teach-and-show**: every section gives attendees a step-by-step they can repeat at the office on Monday.
 **Audience note:** Mixed room, leaning non-technical. One known attendee (Mona, ACP / in-house legal team of one) wants to build a contract-review playbook + provisions FAQ + assistant agent. **Tune every example to that use case.**
 **Reference diagram:** `https://apexreplicant.ai/presentations/investment/images/zeroHal.png` *(labels say "expert" / "client" — read them as "agent owner" / "user"; the architecture is the same)*
-**Take-home repo:** https://github.com/expertscale/vibe-coding-workshop
+**Take-home repo:** https://github.com/Expert-Scale/vibe-coding-workshop
 
 ---
 
