@@ -1,0 +1,4 @@
+category,topic,our_standard_position,context_band,notes
+# TODO: replace columns + rows for your domain. Keep the header on one line.
+# Example row from the contract-review domain (delete or adapt):
+vendor_msa,indemnity_cap,1x_fees,<100k,boilerplate; no negotiation needed

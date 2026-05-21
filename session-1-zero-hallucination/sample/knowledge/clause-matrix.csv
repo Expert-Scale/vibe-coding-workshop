@@ -1,0 +1,25 @@
+contract_type,clause,our_standard_position,deal_size_band,notes
+vendor_msa,indemnity_cap,1x_fees,<100k,boilerplate; no negotiation needed
+vendor_msa,indemnity_cap,2x_fees,100k-1M,negotiable to 3x with VP Finance approval
+vendor_msa,indemnity_cap,fees_plus_insurance,>1M,must engage outside counsel
+vendor_msa,limitation_of_liability,12_months_fees,<100k,standard
+vendor_msa,limitation_of_liability,24_months_fees,100k-1M,negotiable; insurance certs required
+vendor_msa,limitation_of_liability,bespoke,>1M,outside counsel
+vendor_msa,data_breach_notification,72_hours,any,non-negotiable
+vendor_msa,payment_terms,net_30,any,Net 60 only with CFO approval
+vendor_msa,termination_for_convenience,30_days_notice,<100k,standard
+vendor_msa,termination_for_convenience,60_days_notice,100k-1M,prefer; accept 30 if needed
+customer_msa,warranty,90_days,any,we never give longer than 90 days
+customer_msa,limitation_of_liability,12_months_fees,<100k,standard
+customer_msa,limitation_of_liability,fees_paid_only,100k-1M,push for fees-paid-only on first deals
+customer_msa,indemnity_cap,fees_paid,<100k,IP indemnity at customer's option
+customer_msa,sla_credits,5_percent_max_per_month,any,never uncap SLA credits
+nda,term_length,2_years,any,non-negotiable for inbound; 1 year acceptable for outbound to small parties
+nda,jurisdiction,Delaware,any,prefer Delaware; California acceptable
+nda,definition,marked_or_reasonable,any,reject "any information disclosed" without qualifier
+nda,return_destroy,30_days,any,one archival copy permitted for compliance
+sow,payment_terms,net_30,any,Net 60 only with CFO approval
+sow,acceptance_criteria,objective_required,any,reject "in customer's sole discretion"
+sow,change_orders,written_signed,any,no verbal changes; PM cannot modify scope
+partnership,exclusivity,non_exclusive,any,exclusivity always escalates to GC
+partnership,revenue_share,bands_in_addendum,any,reference addendum-rev-share.md

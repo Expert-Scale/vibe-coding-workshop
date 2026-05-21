@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pytest:*)",
+      "Bash(uvicorn:*)",
+      "Bash(curl:*)",
+      "Bash(httpx:*)",
+      "Bash(python:*)",
+      "Bash(git diff:*)",
+      "Bash(git status:*)",
+      "Bash(ls:*)",
+      "Read(./**)",
+      "Write(./**)",
+      "Edit(./**)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          { "type": "command", "command": "git diff --stat 2>/dev/null || true" }
+        ]
+      }
+    ]
+  }
+}
