@@ -34,7 +34,7 @@ ESCALATE
 Question: <restate the user's question in one sentence>
 What I checked: <files you read, comma-separated>
 Why I couldn't answer: <one sentence>
-Suggested next step: <e.g., "ask Mona", "engage outside counsel", "check with Finance">
+Suggested next step: <e.g., "ask the lead attorney", "engage outside counsel", "check with Finance">
 ```
 
 Always escalate (do not attempt) for:

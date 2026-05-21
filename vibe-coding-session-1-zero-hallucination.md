@@ -1,7 +1,7 @@
 # Zero-Hallucination AI Agents — 45-Minute Workshop Plan
 
 **Format:** Live "vibe coding" — build a working legal-playbook agent on screen while teaching the 4 guardrails. **Teach-and-show**: every section gives attendees a step-by-step they can repeat at the office on Monday.
-**Audience note:** Mixed room, leaning non-technical. One known attendee (Mona, ACP / in-house legal team of one) wants to build a contract-review playbook + provisions FAQ + assistant agent. **Tune every example to that use case.**
+**Audience note:** Mixed room, leaning non-technical. One known attendee is an in-house legal paralegal (legal team of one) who wants to build a contract-review playbook + provisions FAQ + assistant agent. **Tune every example to that use case.**
 **Reference diagram:** `https://apexreplicant.ai/presentations/investment/images/zeroHal.png` *(labels say "expert" / "client" — read them as "agent owner" / "user"; the architecture is the same)*
 **Take-home repo:** https://github.com/Expert-Scale/vibe-coding-workshop
 
@@ -11,7 +11,7 @@
 
 Most AI tools jump straight to answering. We're going to teach the model to **understand first, answer only from validated sources, and escalate when it's outside its lane.** That's the difference between a confident liar and a useful agent.
 
-Four guardrails. One running example: a **Contract Review Agent** that helps Mona's team triage NDAs and MSAs before outside counsel touches them.
+Four guardrails. One running example: a **Contract Review Agent** that helps an in-house legal team triage NDAs and MSAs before outside counsel touches them.
 
 **Tools used today:**
 - **Vanilla Gemini Flash + ChatGPT** — for the opening "watch it hallucinate" demo only
@@ -62,7 +62,7 @@ Show three things on screen:
 
 1. `claude` command running — a blank session.
 2. A `CLAUDE.md` file open in your editor. *"This is where the agent gets its rules — like a job description."*
-3. A `knowledge/` folder. *"This is where Mona's playbook docs and clause matrix will live."*
+3. A `knowledge/` folder. *"This is where the legal team's playbook docs and clause matrix will live."*
 
 **DIY (in the repo README):**
 
@@ -82,12 +82,12 @@ That's the whole setup. Now we build the four guardrails on top.
 
 > Before answering anything, ask: *do I actually understand what you need?*
 
-The four moves (Mona's whiteboard 1A-D):
+The four moves (whiteboard 1A-D):
 
 - **1st Prompt** — A system prompt that names the agent's job: *"You help in-house legal triage contracts before outside counsel. You ask before you answer."*
 - **Interview** — A short set of questions the agent must ask before giving advice: *What kind of contract? Who's the counterparty? What's the dollar exposure? What's your company's risk posture?*
 - **Active Listening** — A self-check before any answer: *Do I have enough to answer accurately, or do I need to ask one more question?* If unsure, ask. Loop.
-- **Tone** — One line in the system prompt locks the voice. For Mona: *"warm, plain-language, never lawyerly with non-lawyers."*
+- **Tone** — One line in the system prompt locks the voice. For example: *"warm, plain-language, never lawyerly with non-lawyers."*
 
 **Demo:** Re-run the indemnity-cap question. This time the agent asks *"What's the deal size and what's the vendor's insurance floor?"* instead of guessing.
 
@@ -126,13 +126,13 @@ The four moves (Mona's whiteboard 1A-D):
 
 > Remember what you were just told. Notice patterns that change the answer.
 
-Three pieces (Mona's 2A-C):
+Three pieces (whiteboard 2A-C):
 
 - **History** — Every turn of the conversation is fed back into the next prompt. Claude Code does this automatically inside one session.
-- **Red Flags** — Patterns that should *change* behavior. For Mona: *counterparty asking for unlimited liability, NDA signed before scope is defined, indemnity one-way against us.* Each one triggers "flag this for human review."
+- **Red Flags** — Patterns that should *change* behavior. For example: *counterparty asking for unlimited liability, NDA signed before scope is defined, indemnity one-way against us.* Each one triggers "flag this for human review."
 - **Green Flags** — Signals the conversation is on track. User providing specifics, asking deeper follow-ups, confirming understanding. Feed those back so the agent stays in that mode.
 
-**Demo:** Paste a one-paragraph NDA clause with a buried "unlimited liability" phrase. The agent catches it, says *"this one needs Mona's eyes — here's why,"* and stops.
+**Demo:** Paste a one-paragraph NDA clause with a buried "unlimited liability" phrase. The agent catches it, says *"this one needs human review — here's why,"* and stops.
 
 ### DIY: Set This Up in Claude Code
 
@@ -178,7 +178,7 @@ Three pieces (Mona's 2A-C):
 
 Three places knowledge lives — work them in this order:
 
-1. **Structured (rows in a table)** — Things with definitive answers. For Mona: a **clause matrix** — counterparty type × clause type × our standard position. *"For a vendor under $100k, our standard indemnity cap is 1x fees."* Pull the row. Done. No LLM creativity needed.
+1. **Structured (rows in a table)** — Things with definitive answers. For example: a **clause matrix** — counterparty type × clause type × our standard position. *"For a vendor under $100k, our standard indemnity cap is 1x fees."* Pull the row. Done. No LLM creativity needed.
 2. **Documents (your actual files)** — The playbook docs, past contracts, redline guides.
 3. **Semantic search (RAG)** — Fuzzy, meaning-based search across the same documents when the user's question doesn't match a clean lookup.
 
@@ -233,7 +233,7 @@ Three places knowledge lives — work them in this order:
 
 The whole pillar is one rule: **the KB is the fence.** If retrieval comes up empty or low-confidence, the agent doesn't guess — it escalates.
 
-For Mona: the agent answers playbook questions and triages contracts. The moment something needs an actual legal judgment call — *should we walk from this deal?* — it routes to her or to outside counsel with full context attached. That handoff is the *premium* feature, not a failure.
+For an in-house legal team: the agent answers playbook questions and triages contracts. The moment something needs an actual legal judgment call — *should we walk from this deal?* — it routes to the team's lead attorney or to outside counsel with full context attached. That handoff is the *premium* feature, not a failure.
 
 **Demo:** Ask something genuinely out of scope — *"Can you draft me a termination notice?"* The agent declines, explains why, and escalates with a clean summary.
 
@@ -250,7 +250,7 @@ For Mona: the agent answers playbook questions and triages contracts. The moment
      Question: <restate the user's question>
      What I checked: <files you read>
      Why I couldn't answer: <one sentence>
-     Suggested next step: <e.g., "ask Mona", "engage outside counsel">
+     Suggested next step: <e.g., "ask the lead attorney", "engage outside counsel">
 
    Out-of-scope examples that must escalate:
    - Drafting new contract language (vs. reviewing existing)
